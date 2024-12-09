@@ -18,27 +18,29 @@ function nextSequence(){
     var randomNumber =Math.floor(Math.random()*4);
     var randomChosenColour = buttonColors[randomNumber];
     gamePattern.push(randomChosenColour);
-    console.log(gamePattern);
+    $("#"+randomChosenColour).fadeOut(200).fadeIn(200);
     playSound(randomChosenColour);
 }
    
 $(".btn").click(function(e){
     var userChosenColour = e.target.id;
     userClickedPattern.push(userChosenColour);
-    console.log(userClickedPattern);
     playSound(userChosenColour);
+    $("#"+userChosenColour).addClass("pressed");
+    setTimeout(function(){
+        $("#"+userChosenColour).removeClass("pressed");
+    },300);
     checkAnswer(userClickedPattern.length-1);
 });
 
 function playSound(name){
-        $("#"+name).fadeOut(200).fadeIn(200);
         var audio = new Audio("./sounds/"+name+".mp3");
         audio.play();
 }
 function checkAnswer(currentLevel){
     if (userClickedPattern[currentLevel]===gamePattern[currentLevel]) {
         if(userClickedPattern.length === gamePattern.length){
-                setTimeout( nextSequence(), 2000)
+                setTimeout( nextSequence(), 3000);
                 userClickedPattern=[];
         }
     }
