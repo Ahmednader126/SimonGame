@@ -4,7 +4,7 @@ var userClickedPattern=[];
 var level = 0 ;
 var started = false ;
 
-$("h1").click(function(){
+$("#start").click(function(){
     if (started != true) {
         $("#level-title").text("Level " + level);
         nextSequence();
@@ -14,7 +14,7 @@ $("h1").click(function(){
 
 function nextSequence(){
     level++ ;
-    $("#level-title").text("Level " + level);
+    $("#start").text("Level " + level);
     var randomNumber =Math.floor(Math.random()*4);
     var randomChosenColour = buttonColors[randomNumber];
     gamePattern.push(randomChosenColour);
@@ -43,7 +43,7 @@ function checkAnswer(currentLevel){
         }
     }
     else{
-        $("h1").text("Game Over Press Any Key To Restart");
+        $("#start").text("Game Over Press Any Key To Restart");
         $("body").css("background-color","red");
         var audio = new Audio("./sounds/wrong.mp3");
         audio.play();
