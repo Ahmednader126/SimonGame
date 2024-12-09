@@ -4,7 +4,7 @@ var userClickedPattern=[];
 var level = 0 ;
 var started = false ;
 
-$("body").keydown(function(){
+$("h1").click(function(){
     if (started != true) {
         $("#level-title").text("Level " + level);
         nextSequence();
