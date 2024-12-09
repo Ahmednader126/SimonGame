@@ -16,6 +16,17 @@ body {
   margin: auto;
 
 }
+#start {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  5%;
+  color: #FEF2BF;
+  background-color: #011F3F;
+  border: solid 10px #FEF2BF ;
+  border-radius: 15px;
+  padding: 20px;
+  
+}
 
 .btn {
   margin: 25px;
