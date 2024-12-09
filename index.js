@@ -6,7 +6,7 @@ var started = false ;
 
 $("#start").click(function(){
     if (started != true) {
-        $("#level-title").text("Level " + level);
+        $("#start").text("Level " + level);
         nextSequence();
         started = true;
       }
@@ -31,14 +31,14 @@ $(".btn").click(function(e){
 });
 
 function playSound(name){
-        $("#"+name).fadeOut(100).fadeIn(100);
+        $("#"+name).fadeOut(200).fadeIn(200);
         var audio = new Audio("./sounds/"+name+".mp3");
         audio.play();
 }
 function checkAnswer(currentLevel){
     if (userClickedPattern[currentLevel]===gamePattern[currentLevel]) {
         if(userClickedPattern.length === gamePattern.length){
-                setTimeout( nextSequence(), 1000)
+                setTimeout( nextSequence(), 2000)
                 userClickedPattern=[];
         }
     }
@@ -49,7 +49,7 @@ function checkAnswer(currentLevel){
         audio.play();
         setTimeout(function(){
             $("body").css("background-color","#011F3F");
-        },300);
+        },500);
         gamePattern =[];
         userClickedPattern=[];
         level = 0 ;
